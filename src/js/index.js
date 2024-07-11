@@ -7,9 +7,6 @@ const inputElement = document.getElementById('input');
 const restartButton = document.getElementById('restart');
 const gameBoard = document.getElementById('game-board');
 
-// al hacer click en los botones pasa el numero de intentos y luego empieza el juego.
-// la funcion q recibe lo asigna y luego pinta todo.
-
 const NUMBER_OF_GUESSES = 5;
 let currentGuesses = 0;
 let rightGuessString = null;
@@ -18,8 +15,6 @@ const initBoard = () => {
   const fragment = document.createDocumentFragment();
   const randomWord = WORDS[Math.floor(Math.random() * WORDS.length)];
   rightGuessString = randomWord;
-
-  console.log(rightGuessString);
 
   gameBoard.classList.add('game-board');
 
