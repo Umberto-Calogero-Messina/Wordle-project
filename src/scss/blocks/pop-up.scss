@@ -1,0 +1,31 @@
+.pop-up {
+  background-color: #eee;
+  color: #111;
+  font-size: 1rem;
+  left: 50%;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  position: fixed;
+  top: -10%;
+  transform: translate(-50%) translateY(-100%);
+  transition: transform 0.5s cubic-bezier(0.42, 0, 0.29, 2.25);
+  width: max-content;
+}
+
+.pop-up--show {
+  transform: translate(-50%) translateY(180px);
+}
+
+.animated {
+  animation: rotate 1s ease-in-out;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateX(0);
+  }
+
+  to {
+    transform: rotateX(1turn);
+  }
+}
