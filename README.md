@@ -4,7 +4,7 @@
 
 ## Ejemplo en vivo
 
-- [Wordle Clone](https://umberto-calogero-messina.github.io/To-do-list-project/)
+- [Wordle Clone](https://umberto-calogero-messina.github.io/Wordle-project/)
 
 ## Descripción 📑
 
