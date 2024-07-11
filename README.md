@@ -1,18 +1,20 @@
-# Título del proyecto
+# Wordle Clone
 
-![Imagen del proyecto](https://github.com/eduardofierropro/Portafolio-y-CV/blob/main/IMAGEN-DEL-PROYECTO.jpg?raw=true)
+![Imagen del proyecto](https://raw.githubusercontent.com/Umberto-Calogero-Messina/Wordle-project/d035ea867598b021dd8bd18874e9adb439e75740/src/assets/images/wordle.webp)
 
 ## Ejemplo en vivo
 
-- [URL-de-github-pages-de-este-proyecto](URL-de-github-pages-de-este-proyecto)
+- [Wordle Clone](https://umberto-calogero-messina.github.io/To-do-list-project/)
 
 ## Descripción 📑
 
-Lorem ipsum dolor, sit amet consectetur adipisicing elit. A voluptatum et esse, ipsum ipsam debitis ducimus dolorum placeat? Consectetur, soluta vero. Accusamus iure est pariatur, doloremque nam cumque natus unde adipisci laborum ut. At id sapiente consequatur earum. Magnam doloribus, voluptate zumito doloremque obcaecati vel excepturi numquam cupiditate ipsam quisquam!
+
+
+Funcionalidades Principales:
+- 
 
 ## ¿Qué he aprendido en este proyecto? 🙇🏻
-
-Lorem ipsum dolor, sit amet consectetur adipisicing elit. A voluptatum et esse, ipsum ipsam debitis ducimus dolorum placeat? Consectetur, soluta vero. Accusamus iure est pariatur, doloremque nam cumque natus unde adipisci laborum ut. At id sapiente consequatur earum. Magnam doloribus, voluptate zumito doloremque obcaecati vel excepturi numquam cupiditate ipsam quisquam!
+- 
 
 ## Tecnologías 🛠
 
@@ -20,21 +22,23 @@ Lorem ipsum dolor, sit amet consectetur adipisicing elit. A voluptatum et esse, 
 
 [![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://es.wikipedia.org/wiki/HTML5)
 [![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://es.wikipedia.org/wiki/CSS)
+[![JS](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)](https://es.wikipedia.org/wiki/CSS)
 
 ## Vista previa del proyecto
 
 Si quieres echar un vistazo al proyecto, te recomiendo:
 
-![Captura del proyecto](https://github.com/eduardofierropro/Portafolio-y-CV/blob/main/CAPTURA-DEL-PROYECTO.jpg?raw=true)
-![Captura del proyecto](https://github.com/eduardofierropro/Portafolio-y-CV/blob/main/CAPTURA-DEL-PROYECTO.jpg?raw=true)
-![Captura del proyecto](https://github.com/eduardofierropro/Portafolio-y-CV/blob/main/CAPTURA-DEL-PROYECTO.jpg?raw=true)
+![Captura del proyecto](https://raw.githubusercontent.com/Umberto-Calogero-Messina/Wordle-project/d035ea867598b021dd8bd18874e9adb439e75740/src/assets/images/wordle.webp)
+![Captura del proyecto](https://raw.githubusercontent.com/Umberto-Calogero-Messina/Wordle-project/d035ea867598b021dd8bd18874e9adb439e75740/src/assets/images/wordle_try.webp)
+![Captura del proyecto](https://raw.githubusercontent.com/Umberto-Calogero-Messina/Wordle-project/d035ea867598b021dd8bd18874e9adb439e75740/src/assets/images/wordle_incorrect.webp)
+![Captura del proyecto](https://raw.githubusercontent.com/Umberto-Calogero-Messina/Wordle-project/d035ea867598b021dd8bd18874e9adb439e75740/src/assets/images/wordle_success.webp)
+
 
 ## Autor ✒️
 
-**TU NOMBRE**
+**Umberto Calogero Messina**
 
-- [micorreo@midominio.com](micorreo@midominio.com)
-- [LinkedIn](https://www.linkedin.com/in/tu-url-de-linkedin/)
+- [ucmessina@gmail.com](ucmessina@gmail.com)
 
 ## Instalación
 
