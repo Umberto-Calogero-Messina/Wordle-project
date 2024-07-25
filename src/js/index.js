@@ -108,6 +108,11 @@ const submitFormFunction = ev => {
   const formValueLength = inputWord.length;
   const randomWordLength = rightGuessString.length;
 
+  if (!WORDS.includes(inputWord)) {
+    showPopUp(`La palabra ${inputWord} no es valida.`);
+    return;
+  }
+
   if (currentGuesses === NUMBER_OF_GUESSES) {
     showPopUp(`No tienes más intentos`);
     return;
