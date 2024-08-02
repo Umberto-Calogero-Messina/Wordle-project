@@ -11,27 +11,6 @@ const NUMBER_OF_GUESSES = 5;
 let currentGuesses = 0;
 let rightGuessString = null;
 
-const initBoard = () => {
-  const fragment = document.createDocumentFragment();
-  const randomWord = WORDS[Math.floor(Math.random() * WORDS.length)];
-  rightGuessString = randomWord;
-
-  gameBoard.classList.add('game-board');
-
-  for (let i = 0; i < NUMBER_OF_GUESSES; i++) {
-    const row = document.createElement('div');
-    row.classList.add('letter-row');
-    for (let j = 0; j < rightGuessString.length; j++) {
-      const boxWordle = document.createElement('div');
-      boxWordle.classList.add('letter-box');
-      row.append(boxWordle);
-    }
-    fragment.append(row);
-  }
-
-  gameBoard.append(fragment);
-};
-
 const showPopUp = message => {
   popUpElement.textContent = message;
   popUpElement.classList.add('pop-up--show');
@@ -40,8 +19,13 @@ const showPopUp = message => {
   }, 3000);
 };
 
-const disableInput = () => {
-  inputElement.disabled = true;
+const disableInput = () => (inputElement.disabled = true);
+
+const cleanInput = () => (inputElement.value = '');
+
+const toggleButtonVisibility = showButton => {
+  inputElement.classList.toggle('d-none', showButton);
+  restartButton.classList.toggle('d-block', showButton);
 };
 
 const animateLetterBox = (box, letter, className, delay) => {
@@ -54,98 +38,109 @@ const animateLetterBox = (box, letter, className, delay) => {
 const checkWordle = (inputWord, letterBoxes) => {
   const rightGuessStringArray = rightGuessString.split('');
   const delayIncrement = 200;
+  const markedLetters = Array(rightGuessString.length).fill(false);
 
-  for (let i = 0; i < inputWord.length; i++) {
-    const letter = inputWord[i];
+  inputWord.split('').forEach((letter, i) => {
     const box = letterBoxes[i];
     if (letter === rightGuessString[i]) {
       animateLetterBox(box, letter, 'letter--correct', i * delayIncrement);
       rightGuessStringArray[i] = null;
+      markedLetters[i] = true;
     }
-  }
+  });
 
-  for (let i = 0; i < inputWord.length; i++) {
-    const letter = inputWord[i];
+  inputWord.split('').forEach((letter, i) => {
+    if (markedLetters[i]) return;
     const box = letterBoxes[i];
-    if (box.textContent) continue;
-
     const letterIndex = rightGuessStringArray.indexOf(letter);
-    if (letterIndex !== -1) {
-      animateLetterBox(box, letter, 'letter--present', i * delayIncrement);
-      rightGuessStringArray[letterIndex] = null;
-    } else {
-      animateLetterBox(box, letter, 'letter--incorrect', i * delayIncrement);
-    }
+    const className = letterIndex !== -1 ? 'letter--present' : 'letter--incorrect';
+    animateLetterBox(box, letter, className, i * delayIncrement);
+    if (letterIndex !== -1) rightGuessStringArray[letterIndex] = null;
+  });
+};
+
+const updateLetterBoxes = () => {
+  const currentRow = gameBoard.querySelectorAll('.letter-row')[currentGuesses];
+  const letterBoxes = currentRow.querySelectorAll('.letter-box');
+  let inputWord = inputElement.value;
+
+  const regex = /^[a-zñáéíóúü]*$/i;
+  if (!regex.test(inputWord[inputWord.length - 1])) {
+    inputElement.value = inputWord.slice(0, -1);
+    inputWord = inputElement.value;
   }
+
+  if (inputWord.length > rightGuessString.length) {
+    inputElement.value = inputWord.slice(0, rightGuessString.length);
+    inputWord = inputElement.value;
+  }
+
+  letterBoxes.forEach((box, i) => {
+    box.textContent = inputWord[i] || '';
+  });
 };
 
-const cleanInput = () => {
-  inputElement.value = '';
-};
-
-const hideInputAndShowButton = () => {
-  inputElement.classList.add('d-none');
-  restartButton.classList.add('d-block');
-};
-
-const showInputAndHideButton = () => {
-  inputElement.classList.remove('d-none');
-  restartButton.classList.remove('d-block');
-};
-
-const restartGame = () => {
-  gameBoard.textContent = '';
-  inputElement.value = '';
-  inputElement.disabled = false;
-  initBoard();
-  showInputAndHideButton();
-  currentGuesses = 0;
-};
-
-const submitFormFunction = ev => {
+const handleSubmit = ev => {
   ev.preventDefault();
   const inputWord = ev.target.word.value;
-  const formValueLength = inputWord.length;
-  const randomWordLength = rightGuessString.length;
 
   if (!WORDS.includes(inputWord)) {
     showPopUp(`La palabra ${inputWord} no es valida.`);
     return;
   }
 
-  if (currentGuesses === NUMBER_OF_GUESSES) {
-    showPopUp(`No tienes más intentos`);
-    return;
-  }
-  if (formValueLength !== randomWordLength) {
-    showPopUp(`La palabra debe tener ${randomWordLength} letras.`);
+  if (inputWord.length !== rightGuessString.length) {
+    showPopUp(`La palabra debe tener ${rightGuessString.length} letras.`);
     return;
   }
 
-  const gameBoard = document.getElementById('game-board');
   const currentRow = gameBoard.querySelectorAll('.letter-row')[currentGuesses];
   const letterBoxes = currentRow.querySelectorAll('.letter-box');
   checkWordle(inputWord, letterBoxes);
 
   currentGuesses++;
 
-  if (inputWord === rightGuessString) {
-    showPopUp(`¡Has adivinado la palabra!`);
+  if (inputWord === rightGuessString || currentGuesses === NUMBER_OF_GUESSES) {
+    const message =
+      inputWord === rightGuessString
+        ? `¡Has adivinado la palabra!`
+        : `No tienes más intentos. La palabra era ${rightGuessString}.`;
+    showPopUp(message);
     disableInput();
-    cleanInput();
-    hideInputAndShowButton();
-    return;
-  }
-
-  if (currentGuesses === NUMBER_OF_GUESSES) {
-    showPopUp(`No tienes más intentos. La palabra era ${rightGuessString}.`);
-    disableInput();
-    hideInputAndShowButton();
+    toggleButtonVisibility(true);
     return;
   }
   cleanInput();
 };
 
+const restartGame = () => {
+  gameBoard.textContent = '';
+  inputElement.disabled = false;
+  currentGuesses = 0;
+  toggleButtonVisibility(false);
+  cleanInput();
+  initBoard();
+};
+
+const initBoard = () => {
+  const fragment = document.createDocumentFragment();
+  rightGuessString = WORDS[Math.floor(Math.random() * WORDS.length)];
+
+  Array.from({ length: NUMBER_OF_GUESSES }).forEach(() => {
+    const row = document.createElement('div');
+    row.classList.add('letter-row');
+    Array.from({ length: rightGuessString.length }).forEach(() => {
+      const boxWordle = document.createElement('div');
+      boxWordle.classList.add('letter-box');
+      row.append(boxWordle);
+    });
+    fragment.append(row);
+  });
+
+  gameBoard.append(fragment);
+};
+
 initBoard();
-wordleFormElement.addEventListener('submit', submitFormFunction);
+wordleFormElement.addEventListener('submit', handleSubmit);
+inputElement.addEventListener('input', updateLetterBoxes);
 restartButton.addEventListener('click', restartGame);

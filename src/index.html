@@ -6,6 +6,12 @@
     <link rel="icon" type="image/svg+xml"
       href="./assets/images/wordle-favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Inter:wght@100..900&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
     <!-- CAMBIA EL TITLE!!! -->
     <title>Wordle Clone</title>
   </head>
@@ -14,8 +20,8 @@
       <h1 class="title">WORDLE</h1>
       <div id="game-board" class="game-board"></div>
       <form id="user-word-form" autocomplete="off">
-        <input id="input" type="text" name="word" class="input"
-          placeholder="type your solution">
+        <input id="input" type="text" name="word" class="input input__title"
+          placeholder="Introduce la palabra">
       </form>
       <button id="restart" class="restart">Restart Game</button>
     </main>
