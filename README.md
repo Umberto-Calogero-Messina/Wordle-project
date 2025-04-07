@@ -1,6 +1,6 @@
 # Wordle Clone
 
-![Imagen del proyecto](https://raw.githubusercontent.com/Umberto-Calogero-Messina/Wordle-project/d035ea867598b021dd8bd18874e9adb439e75740/src/assets/images/wordle.webp)
+![Imagen del proyecto](https://raw.githubusercontent.com/Umberto-Calogero-Messina/Wordle-project/refs/heads/main/src/assets/images/Wordle_preview.jpg)
 
 ## Ejemplo en vivo
 
@@ -8,13 +8,16 @@
 
 ## Descripción 📑
 
+Wordle es un popular juego de palabras en línea en el que el objetivo es adivinar una palabra oculta en un máximo de cinco intentos. Después de cada intento, el juego proporciona pistas visuales:
 
+- Letra en verde: La letra está en la palabra y en la posición correcta.
 
+- Letra en amarillo: La letra está en la palabra, pero en una posición incorrecta.
+
+- Letra en gris: La letra no está en la palabra.
+
+El juego es simple pero desafiante, ya que requiere estrategia y vocabulario para descartar letras y deducir la palabra correcta.
 Funcionalidades Principales:
-- 
-
-## ¿Qué he aprendido en este proyecto? 🙇🏻
-- 
 
 ## Tecnologías 🛠
 
@@ -24,20 +27,12 @@ Funcionalidades Principales:
 [![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://es.wikipedia.org/wiki/CSS)
 [![JS](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)](https://es.wikipedia.org/wiki/CSS)
 
-## Vista previa del proyecto
-
-Si quieres echar un vistazo al proyecto, te recomiendo:
-
-![Captura del proyecto](https://raw.githubusercontent.com/Umberto-Calogero-Messina/Wordle-project/d035ea867598b021dd8bd18874e9adb439e75740/src/assets/images/wordle.webp)
-![Captura del proyecto](https://raw.githubusercontent.com/Umberto-Calogero-Messina/Wordle-project/d035ea867598b021dd8bd18874e9adb439e75740/src/assets/images/wordle_try.webp)
-![Captura del proyecto](https://raw.githubusercontent.com/Umberto-Calogero-Messina/Wordle-project/d035ea867598b021dd8bd18874e9adb439e75740/src/assets/images/wordle_incorrect.webp)
-![Captura del proyecto](https://raw.githubusercontent.com/Umberto-Calogero-Messina/Wordle-project/d035ea867598b021dd8bd18874e9adb439e75740/src/assets/images/wordle_success.webp)
-
 
 ## Autor ✒️
 
 **Umberto Calogero Messina**
 
+- [LinkedIn](https://www.linkedin.com/in/umberto-calogero-messina-9b716026b/)
 - [ucmessina@gmail.com](ucmessina@gmail.com)
 
 ## Instalación
